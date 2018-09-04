@@ -24,13 +24,14 @@ public class NewMain {
         check(url);
         System.out.println("Papito " + url.getNurl());
         tellEM(url.getAllNames());
+        Tree create = new Tree(url);
+        create.setVisible(true);
     }
 
     public static void check(names url) {
         count++;
         i++;
         HashSet<String> lists = new HashSet<String>();
-
         lists = new webCrawler(url.getNurl(), count).getList();
         count = count - 1 + lists.size();
         tellEMr(lists);
@@ -43,11 +44,14 @@ public class NewMain {
                 System.out.println(count);
                 if (count < 26 && i < 2) {
                     System.out.println(i);
+                    hijo.setLevel(i);
                     check(hijo);
+                } else {
+                    hijo.setLevel(i);
                 }
             }
         }
-        System.out.println(i);
+        //System.out.println(i);
         if (i >= 1 && i < 2) {
             i++;
         } else {
